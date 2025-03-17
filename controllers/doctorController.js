@@ -1439,7 +1439,7 @@ export const getDiagnosis = async (req, res) => {
 
     // Fetch patient data from the existing API
     const { data } = await axios.get(
-      `https://saideep.code2pdf.in/doctors/getPatientSuggestion/${patientId}`
+      `https://babul.code2pdf.in/doctors/getPatientSuggestion/${patientId}`
     );
     console.log(data);
     // Extract necessary fields
