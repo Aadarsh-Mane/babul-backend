@@ -171,6 +171,24 @@ export const signupNurse = async (req, res) => {
     res.status(500).json({ message: "Signup failed.", error: error.message });
   }
 };
+export const deleteDoctor = async (req, res) => {
+  console.log("Delete doctor request:", req.params);
+  try {
+    const { doctorId } = req.params;
+
+    const doctor = await hospitalDoctors.findById(doctorId);
+    if (!doctor) {
+      return res.status(404).json({ message: "Doctor not found." });
+    }
+
+    await hospitalDoctors.findByIdAndDelete(doctorId);
+
+    res.status(200).json({ message: "Doctor deleted successfully." });
+  } catch (error) {
+    console.error("Delete error:", error);
+    res.status(500).json({ message: "Deletion failed.", error: error.message });
+  }
+};
 export const signinNurse = async (req, res) => {
   const { email, password } = req.body;
 

@@ -34,6 +34,8 @@ const receiptionRouter = express.Router();
 
 receiptionRouter.post("/addDoctor", upload.single("image"), signupDoctor);
 receiptionRouter.post("/addNurse", signupNurse);
+receiptionRouter.delete("/deleteDoctor/:doctorId", deleteDoctor);
+
 receiptionRouter.post("/addPatient", upload.single("image"), addPatient);
 receiptionRouter.get("/listDoctors", listDoctors);
 receiptionRouter.get("/listPatients", listPatients);
